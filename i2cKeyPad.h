@@ -1,3 +1,5 @@
+#ifndef i2cKeyPad_H
+#define i2cKeyPad_H
 
 class i2cKeyPad
 {
@@ -25,4 +27,7 @@ protected:
   uint8_t m_data;
   int16_t m_error;
 };
+
+#endif // i2cKeyPad_H
+
 
