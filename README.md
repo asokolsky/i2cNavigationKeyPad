@@ -1,10 +1,12 @@
-i2cKeyPad
+# I2C Navigation KeyPad Library
 
-Simple I2C keypad based on [PCF8574](http://www.ti.com/product/PCF8574)
+Simple I2C keypad based on [PCF8574](http://www.ti.com/product/PCF8574).  Has a central direction joystick and two (left and right) soft buttons.
+
+## Hardware
 
 [Schematics and PCB] (https://easyeda.com/asokolsky/I2C_Keypad-524d125bedb34150b7cb3deea4f5bff9)
 
-PinOut
+### PinOut
 
 | Pin | Name | Description |
 | --- | -----| -----|
@@ -16,3 +18,14 @@ PinOut
 
 Use pads SJ1, SJ2, SJ3 to set the peripehral I2C address
 as described in http://www.ti.com/product/PCF8574/datasheet/detailed_description#SCPS0687144
+
+
+## Software Samples
+
+### Polling
+
+foo bar baz
+
+### Interrupt Handling
+
+foo bar baz
