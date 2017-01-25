@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include "i2cNavigationKeyPad.h"
 #include "Trace.h"
+#include "i2cNavigationKeyPad.h"
 
 const byte MyNavKeyPadAddress = 0x27;
 

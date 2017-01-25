@@ -1,6 +1,7 @@
 # I2C Navigation KeyPad Library
 
-Simple [I2C](http://www.i2c-bus.org/i2c-primer/) keypad based on [PCF8574](http://www.ti.com/product/PCF8574).  Has a central 5-way joystick and two (left and right) buttons.
+Simple [I2C](http://www.i2c-bus.org/i2c-primer/) keypad based on [PCF8574](http://www.ti.com/product/PCF8574).  
+Has a central 5-way joystick and two (left and right) buttons.
 
 ## Hardware
 
