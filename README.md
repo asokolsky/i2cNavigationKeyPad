@@ -1,6 +1,7 @@
 # I2C Navigation KeyPad Library
 
-Simple I2C keypad based on [PCF8574](http://www.ti.com/product/PCF8574).  Has a central direction joystick and two (left and right) soft buttons.
+Simple [I2C](http://www.i2c-bus.org/i2c-primer/) keypad based on [PCF8574](http://www.ti.com/product/PCF8574).  
+Has a central 5-way joystick and two (left and right) buttons.
 
 ## Hardware
 
@@ -16,16 +17,19 @@ Simple I2C keypad based on [PCF8574](http://www.ti.com/product/PCF8574).  Has a 
 |4|INT| Interrupt output, low level, generated when key is pressed.|
 |5|GND| Ground|
 
-Use pads SJ1, SJ2, SJ3 to set the peripehral I2C address
-as described in http://www.ti.com/product/PCF8574/datasheet/detailed_description#SCPS0687144
+Use pads SJ1, SJ2, SJ3 to set the peripheral I2C address
+as described in [datasheet](http://www.ti.com/product/PCF8574/datasheet/detailed_description#SCPS0687144)
 
 
 ## Software Samples
 
+i2cNavigationKeyPad.ino
+
 ### Polling
 
-foo bar baz
+see i2cNavigationKeyPad.ino
 
 ### Interrupt Handling
 
-foo bar baz
+Work in progress..
+
