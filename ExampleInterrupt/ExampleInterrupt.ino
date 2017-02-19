@@ -65,15 +65,15 @@ static void onInterrupt()
 
 void setup()
 {  
-  Serial.begin(9600);
+  Serial.begin(115200);
   
   delay(1000);   
   //while(!Serial)  ; // wait for serial port to connect. Needed for Leonardo only
-  DEBUG_PRINTLN("i2cNavigationKeyPad test!");
+  DEBUG_PRINTLN("i2cNavigationKeyPad (interrupt) test!");
 
   // read from the interrupt pin
   pinMode(pinInterrupt, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(pinInterrupt), onInterrupt, LOW); // or FALLING ?
+  attachInterrupt(digitalPinToInterrupt(pinInterrupt), onInterrupt, FALLING);
       
   g_kp.setup();
   
@@ -81,6 +81,9 @@ void setup()
 
 void loop()
 {
+  /** check keypad this often */
+  const unsigned long ulKeypadCheckPeriod = 100;
+  static unsigned long ulKeypadNextTimerCall = ulKeypadCheckPeriod;
   unsigned long ulNow = millis();
   if(g_iInterrupts > 0)
   {
@@ -89,6 +92,14 @@ void loop()
     //cli();
     g_iInterrupts = 0;
     //sei();
+    ulKeypadNextTimerCall = ulNow + ulKeypadCheckPeriod;
+    // this will result in calls onKeyUp/onKeyDown but not much else
+    g_kp.getAndDispatchKey(ulNow);
+  }
+  else if(ulNow > ulKeypadNextTimerCall)
+  {
+    ulKeypadNextTimerCall = ulNow + ulKeypadCheckPeriod;
+    // this is necessary for calls onUserInActivity/onKeyAutoRepeat/onLongKeyDown
     g_kp.getAndDispatchKey(ulNow);
   }
   delay(1);
